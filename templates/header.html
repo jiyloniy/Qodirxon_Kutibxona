@@ -1,0 +1,146 @@
+{% load static %}
+
+<header id="site-header" class="site-header header-style-1 home-6 header-overlay header-fullwidth sticky-header mobile-header-sticky">
+            <!-- Main Header start -->
+            <div class="octf-main-header">
+                <div class="octf-area-wrap">
+                    <div class="container-fluid octf-mainbar-container">
+                        <div class="octf-mainbar">
+                            <div class="octf-mainbar-row octf-row">
+                                <!-- logo start -->
+                                <div class="octf-col">
+                                    <div id="site-logo" class="site-logo"style="width: 300px; height: 100px; padding-top: 0px; padding-bottom: 25px;">
+                                        <a href="{% url 'allbook' %}">
+                                            <img class="logo-static" src="{% static 'images/asd.png' %}"    alt="Onum">
+                                            <img class="logo-scroll" src="{% static 'images/asd.png' %}"  alt="Onum">
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- logo start -->
+
+                                <!-- nav start -->
+                                <div class="octf-col">
+                                    <nav id="site-navigation" class="main-navigation">
+                                        <ul id="primary-menu" class="menu">
+                                            <li class="menu-item-has-children current-menu-item current-menu-ancestor"><a href="{% url 'allbook' %}" {% if '/allbook/book/' in request.path %}style="color: black"{% endif %}>Home</a>
+                                                <ul class="sub-menu">
+
+                                                    <li><a href="{% url 'allbook' %}">Home</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="{% url 'books' %}" {% if '/allbook/book/' in request.path %}style="color: black"{% endif %}{% url 'books' %}">All books</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="{% url 'books' %}">All books</a></li>
+
+
+                                                </ul>
+                                            </li>
+
+
+                                            <li class="menu-item-has-children"><a href="shop.html"{% url 'allbook' %}" {% if '/allbook/book/' in request.path %}style="color: black"{% endif %}>Me</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="shop.html">Me</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="{% url 'contact' %}" {% if '/allbook/book/' in request.path %}style="color: black"{% endif %}>Contacts</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="{% url 'contact' %}">Connact</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav><!-- #site-navigation -->
+                                </div>
+
+                                <div class="octf-col text-right">
+                                <!-- Call To Action -->
+                                    <div class="octf-btn-cta">
+
+                                        <div class="octf-header-module">
+                                            <div class="toggle_search octf-cta-icons">
+
+                                            </div>
+                                            <!-- Form Search on Header -->
+                                            <div class="h-search-form-field">
+                                                <div class="h-search-form-inner">
+                                                    <form role="search" method="get" id="search-form" class="search-form" action="">
+                                                        <input type="search" class="search-field" placeholder="Search…" value="" name="s">
+                                                        <button type="submit" class="search-submit"><i class="flaticon-search"></i></button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header mobile -->
+            <div class="header_mobile">
+                <div class="container">
+                    <div class="mlogo_wrapper clearfix">
+
+                        <!-- logo mobile start -->
+                        <div class="mobile_logo">
+                            <a href="index.html"><img src="{% static 'images/asd.png' %}" alt="Onum"></a>
+                        </div>
+                        <!-- logo mobile end -->
+
+                        <!-- cart mobile start -->
+                        <div class="octf-btn-cta">
+                            <div class="octf-header-module cart-btn-hover">
+                                <div class="h-cart-btn octf-cta-icons">
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- cart mobile end -->
+
+                        <div id="mmenu_toggle">
+                            <button></button>
+                        </div>
+
+                    </div>
+
+                    <!-- nav mobile start -->
+                    <div class="mmenu_wrapper">
+                        <div class="mobile_nav">
+                            <ul id="menu-main-menu" class="mobile_mainmenu">
+                                <li class="menu-item-has-children current-menu-item current-menu-ancestor"><a href="{% url 'allbook' %}" >Home</a>
+                                    <ul class="sub-menu">
+
+                                        <li class="current-menu-item"><a href="{% url 'allbook' %}">Home</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="{% url 'books' %}">All book</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'books' %}">All books</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">Me</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about-us.html">Me</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="menu-item-has-children"><a href="{% url 'contact' %}">Contacts</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- nav mobile end -->
+                </div>
+            </div>
+        </header>

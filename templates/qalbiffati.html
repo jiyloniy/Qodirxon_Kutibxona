@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div id="content" class="site-content">
+
+        <section class="site-header header-style-1 home-6 header-overlay header-fullwidth sticky-header mobile-header-sticky" data-color="#fe4c1c,#00c3ff,#0160e7" data-id="a1">
+        </section>
+        <section class="p-tb90 particles-js" data-color="#fe4c1c,#00c3ff,#0160e7" data-id="a1">
+            <div class="container-fluid">
+                <div class="row flex-row">
+                    <div class="col-md-6 col-xs-12 p-lr30 xs-p-lr15 align-self-center xs-m-b40">
+                        <img src="{{ book.img }}" alt=""style="height: 500px">
+                    </div>
+                    <div class="col-md-6 col-xs-12 p-l85 p-r70 xs-p-lr15 align-self-center">
+                        <h6 class="steam-pos">{{ book.author }}</h6>
+                        <h2 class="steam-name">{{ book.name }}</h2>
+                        <p class="steam-desc">{{ book.description }}</p>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h6 class="steam-info">Tarjimon</h6>
+                                <p class="m-b30">O‘tkirbek Muhammadsobir</p>
+                                <h6 class="steam-info">Betlar soni</h6>
+                                <p class="m-b30">240</p>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <h6 class="steam-info">Muqovasi</h6>
+                                <p class="m-b30"> Qattiq</p>
+                                <h6 class="steam-info"> Chop etilgan yili</h6>
+                                <p class="m-b30"> 2022 </p>
+                            </div>
+                        </div>
+                        <div class="steam-social">
+
+                            <h5>Kitobni o'qish><a href="{% url 'pdf' book.pk %}" ><i class="fa-regular fa-file-pdf"></i>></a></h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+{% endblock %}
+

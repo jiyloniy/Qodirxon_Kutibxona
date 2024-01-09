@@ -1,0 +1,88 @@
+{% load static %}
+
+<style type="text/css">
+    body {
+        background-color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        height: 95vh;
+        width: 95%;
+        margin: 20px auto;
+        border: 2px solid red;
+        box-shadow: 0 0 5px red;
+    }
+
+    .fullscreen {
+        background-color: #333;
+    }
+
+    .examples {
+        position: relative;
+    }
+
+    .examples div {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        padding-top: 10px;
+        font-size: 20px;
+    }
+
+    .examples a {
+        color: #ccc;
+        text-decoration: none;
+        padding: 0 10px;
+    }
+
+    .examples a:hover {
+        color: #fff;
+    }
+</style>
+
+<div class="examples">
+    <div>
+        <a href="example2.html">Several flipbooks on one page</a> <a href="example1.html">Lightbox</a>
+    </div>
+</div>
+
+<div class="container" id="container">
+
+</div>
+{#<link rel="stylesheet" href="{% static 'css/default-book-view.html' %}">#}
+{#<link rel="stylesheet" href="{% static 'css/short-black-book-view.css' %}">#}
+{#<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">#}
+
+
+<script src="{% static 'js/three.min.js' %}" async=""></script>
+<script src="{% static 'js/pdf.min.js' %}" async=""></script>
+<script src="{% static 'js/3dflipbook.min.js' %}" async=""></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/html2canvas.min.js' %}" async=""></script>
+
+<script
+<script type="text/javascript">
+    $('#container').FlipBook({
+        pdf: '{{ book.file.url }}',
+        template: {
+            html: '{% static 'css/default-book-view.html' %}',
+            styles: [
+                '{% static 'css/short-black-book-view.css'%}'
+            ],
+            links: [
+                {
+                    rel: 'stylesheet',
+                    href: '{% static 'css/font-awesome.min.css' %}'
+                }
+            ],
+            script: '{% static 'js/default-book-view.js' %}'
+        }
+    });
+
+
+</script>
+
+
+</body>

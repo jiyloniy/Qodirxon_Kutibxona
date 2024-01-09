@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div id="content" class="site-content">
+        <section class="home6-top particles-js" data-color="#ffffff,#ffffff, #ffffff" data-id="i6">
+            {% for foo in banner %}
+
+
+
+                <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="team-image text-center">
+                            <img src="{{ foo.img }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 team--top">
+                        <div class="team-block">
+                            <div class="ot-heading text-light">
+                                <h6><span>{{ foo.tur }}</span></h6>
+                                <h2 class="main-heading">{{ foo.name }}</h2>
+                            </div>
+                            <p class="text-light m-b0">{{ foo.tag }}</p>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            </div>
+        </section>
+
+        <section class="home6-tabs-slide particles-js" data-color="#ffffff,#ffffff, #ffffff" data-id="i6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 m-b35 text-center">
+                        <div class="ot-heading">
+
+                            <h2>Eng so'ngi kitoblar </h2>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    {% for foo in book %}
+                    <div class="col-md-4 col-sm-6 col-xs-12 m-b55" style="max-height: 60%">
+                        <div class="team-wrap">
+                            <div class="team-thumb">
+                                <img src="{{ foo.image.url }}" alt="">
+                            </div>
+                            <div class="team-info">
+                                <h4>{{ foo.name }}</h4>
+                                <span>{{ foo.author.name }}</span>
+                                <div class="team-social">
+                                    <a class="twitter" target="_blank" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="facebook" target="_blank" href="#"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="pinterest" target="_blank" href="#"><i
+                                            class="fab fa-pinterest-p"></i></a>
+                                    <span class="flaticon-add-1"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+{% endblock %}
+
+

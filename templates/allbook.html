@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div id="content" class="site-content">
+        <section class="home6-top particles-js" data-color="#ffffff,#ffffff, #ffffff" data-id="i7">
+            <div class="site-header header-style-1 header-overlay header-fullwidth sticky-header"></div>
+            <div class="container ">
+
+                <div class="row">0
+                    <div class="col-md-12 text-center">
+
+                        <h2 class="banner-stitle m-b55 xs-m-b40">KITOBBEKNING<br><span class="text-second">KUTIBXONASIGA XUSHKELIBSIZ</span>
+                        </h2>
+                        <div class="wpcf7">
+                            <div class="screen-reader-response"></div>
+                            <form action="seoform.php" method="POST" class="wpcf7-form">
+                                <div class="seo-score one-line-form">
+                                        <span class="wpcf7-form-control-wrap your-url">
+                                            <input type="text" name="url" value="" size="40"
+                                                   class="wpcf7-form-control wpcf7-text wpcf7-url"
+                                                   placeholder="Your Website URL" required="">
+                                        </span>
+                                    <button type="submit" class="octf-btn octf-btn-icon octf-btn-primary">Start Now<i
+                                            class="flaticon-right-arrow-1"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {#        <section class="home6-top"></section>#}
+        <section class="home8-about particles-js" data-color="#ffffff,#ffffff, #ffffff" data-id="i6">
+            <div class="content-product-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div id="primary" class="content-area col-lg-9 col-md-9 col-sm-12 col-xs-12 pull-right">
+                            <main id="main" class="site-main">
+                                <div class="woocommerce-notices-wrapper"></div>
+                                <ul class="products columns-3">
+                                    {% if books %}
+                                    {% for book in books %}
+                                        {% if forloop.counter0|divisibleby:3 %}
+                                            <li class="product first">
+                                                <div class="product-media">
+                                                    <img src="{{ book.img }}" alt="">
+                                                    <div class="wrapper-add-to-cart">
+                                                        <div class="add-to-cart-inner">
+                                                            <a href="{% url 'book_detail' book.pk %}"
+                                                               class="button product_type_simple add_to_cart_button ajax_add_to_cart octf-btn octf-btn-primary octf-btn-icon">Kitobni o'qish <i class="fa-solid fa-book-open" style="color: #b65d5d;"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h2 class="woocommerce-loop-product__title"><a
+                                                        href="{% url 'book_detail' book.pk %}">{{ book.name }}</a></h2>
+                                                <div class="star-rating">
+
+                                                </div>
+                                                <span class="price">
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <span class="woocommerce-Price-currencySymbol"></span>{{ book.author.name }}
+                                                </span>
+                                            </span>
+                                            </li>
+
+                                        {% elif forloop.counter0|add:1|divisibleby:3 %}
+                                            <li class="product last">
+                                                <div class="product-media">
+                                                    <img src="{{ book.img }}" alt="">
+                                                    <div class="wrapper-add-to-cart">
+                                                        <div class="add-to-cart-inner">
+                                                            <a href="{% url 'book_detail' book.pk %}"
+                                                               class="button product_type_simple add_to_cart_button ajax_add_to_cart octf-btn octf-btn-primary octf-btn-icon">Kitobni o'qish<i class="fa-solid fa-book-open" style="color: #b65d5d;"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h2 class="woocommerce-loop-product__title"><a
+                                                        href="{% url 'book_detail' book.pk %}">{{ book.name }}</a></h2>
+                                                <div class="star-rating">
+
+                                                </div>
+                                                <span class="price">
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <span class="woocommerce-Price-currencySymbol"></span>{{ book.author.name }}
+                                                </span>
+                                            </span>
+                                            </li>
+                                        {% else %}
+                                            <li class="product">
+                                                <div class="product-media">
+                                                    <img src="{{ book.img }}" alt="">
+                                                    <div class="wrapper-add-to-cart">
+                                                        <div class="add-to-cart-inner">
+                                                            <a href="{% url 'book_detail' book.pk %}"
+                                                               class="button product_type_simple add_to_cart_button ajax_add_to_cart octf-btn octf-btn-primary octf-btn-icon">Kitobni o'qish  <i class="fa-solid fa-book-open" style="color: #b65d5d;"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h2 class="woocommerce-loop-product__title"><a
+                                                        href="{% url 'book_detail' book.pk %}">{{ book.name }}</a></h2>
+                                                <div class="star-rating">
+
+                                                </div>
+                                                <span class="price">
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <span class="woocommerce-Price-currencySymbol"></span>{{ book.author.name }}
+                                                </span>
+                                            </span>
+                                            </li>
+
+                                        {% endif %}
+
+                                    {% endfor %}
+                                    {% else %}
+                                        <h1>Kitoblar mavjud emas</h1>
+                                    {% endif %}
+                                </ul>
+                                {% if is_paginated %}
+                                    <nav class="wc-pagination">
+                                        <ul class="page-pagination">
+                                            {% if page_obj.has_previous %}
+                                                <li><a class="prev page-numbers"
+                                                       href="?page={{ page_obj.previous_page_number }}"><i
+                                                        class="flaticon-arrow-pointing-to-left"></i></a></li>
+                                            {% endif %}
+
+                                            {% for num in page_obj.paginator.page_range %}
+                                                {% if page_obj.number == num %}
+                                                    <li><span aria-current="page"
+                                                              class="page-numbers current">{{ num }}</span></li>
+                                                {% else %}
+                                                    <li><a class="page-numbers" href="?page={{ num }}">{{ num }}</a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                            {% if page_obj.has_next %}
+                                                <li><a class="next page-numbers"
+                                                       href="?page={{ page_obj.next_page_number }}"><i
+                                                        class="flaticon-arrow-pointing-to-right"></i></a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                {% endif %}
+                            </main>
+                        </div>
+                        <aside class="shop-sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12" id="primary-sidebar"
+                               style="color:white;">
+                            <section id="woocommerce_product_categories-2"
+                                     class="widget woocommerce widget_product_categories">
+                                <h5 class="widget-title">Categories</h5>
+                                <ul class="product-categories">
+                                {% for category in categories %}
+                                    <li class="cat-item"><a href="{% url 'category' category.pk %}">{{ category.name }}</a></li>
+                                {% endfor %}
+
+
+                                </ul>
+                            </section>
+
+                            <section id="woocommerce_products-2" class="widget woocommerce widget_products">
+                                <h5 class="widget-title">Authors</h5>
+                                <ul class="product_list_widget">
+                                    {% for author in authors %}
+
+
+                                    <li>
+                                        <div class="widget-prthumb">
+                                            <a href="{% url 'author' author.pk %}">
+                                                <img src="{% if author.image %}{{ author.image.url }}{% else %}{% static 'images/default-profile-account-unknown-icon-black-silhouette-free-vector.avif' %}{% endif %}"
+                                                     class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                                                     alt="">
+                                            </a>
+                                        </div>
+                                        <div class="widget-prcontent">
+                                            <span class="product-title"><a href="{% url 'author' author.pk %}">{{ author.name }}</a></span>
+
+                                            <span class="price"><span class="woocommerce-Price-amount amount"><span
+                                                    class="woocommerce-Price-currencySymbol">{{ author.author_books  }} dona </span>kitob</span></span>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+
+
+                                </ul>
+                            </section>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+
+
+
