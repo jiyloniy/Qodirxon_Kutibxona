@@ -56,13 +56,12 @@
 {#<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">#}
 
 
-<script src="{% static 'js/three.min.js' %}" async=""></script>
-<script src="{% static 'js/pdf.min.js' %}" async=""></script>
-<script src="{% static 'js/3dflipbook.min.js' %}" async=""></script>
 <script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/html2canvas.min.js' %}" async=""></script>
+<script src="{% static 'js/three.min.js' %}"></script>
+<script src="{% static 'js/pdf.min.js' %}"></script>
+<script src="{% static 'js/3dflipbook.min.js' %}"></script>
+<script src="{% static 'js/html2canvas.min.js' %}"></script>
 
-<script
 <script type="text/javascript">
     $('#container').FlipBook({
         pdf: '{{ book.file.url }}',
