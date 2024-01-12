@@ -17,28 +17,20 @@ def home(request):
     return render(request, 'index-6.html', context)
 
 
-class BookListView(ListView):
-    model = Book
-    template_name = 'allbook.html'
-    context_object_name = 'books'
-    paginate_by = 6
-
-#    filter by category and author subcategory
-    def get_queryset(self):
-        category = self.request.GET.get('category')
-        author = self.request.GET.get('author')
-        if category:
-            books = Book.objects.filter(category__slug=category)
-        elif author:
-            books = Book.objects.filter(author__slug=author)
-        else:
-            books = Book.objects.all()
-        return books
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
-        context['authors'] = Author.objects.all()
-        return context
+# class BookListView(ListView):
+#     model = Book
+#     template_name = 'allbook.html'
+#     context_object_name = 'books'
+#     paginate_by = 6
+#
+# #    filter by category and author subcategory
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['categories'] = Category.objects.all()
+#         context['authors'] = Author.objects.all()
+#         context['books'] = Book.objects.all()
+#         return context
 
 def category(request, pk):
     books = Book.objects.filter(category__pk=pk)
@@ -51,6 +43,16 @@ def category(request, pk):
     }
     return render(request, 'allbook.html', context)
 
+def BookListView(request):
+    books = Book.objects.all()
+    categories = Category.objects.all()
+    authors = Author.objects.all()
+    context = {
+        'books': books,
+        'categories': categories,
+        'authors': authors,
+    }
+    return render(request, 'allbook.html', context)
 def author(request, pk):
     books = Book.objects.filter(author__pk=pk)
     categories = Category.objects.all()

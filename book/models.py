@@ -39,6 +39,13 @@ class Book(models.Model):
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="book/", null=True, blank=True, default='default/defaultbook.png')
     file = models.FileField(upload_to="book/")
+    muqovasi = (
+        ("Yumshoq", "Yumshoq"),
+        ("Qattiq", "Qattiq"),
+    )
+    muqovasi = models.CharField(max_length=100, choices=muqovasi, null=True, blank=True)
+    pager = models.CharField(max_length=100, null=True, blank=True)
+    printed_year = models.CharField(max_length=100, null=True, blank=True)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, null=True, blank=True
     )

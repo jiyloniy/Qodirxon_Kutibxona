@@ -19,22 +19,23 @@
                         <p class="steam-desc">{{ book.description }}</p>
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
-                                <h6 class="steam-info">Tarjimon</h6>
-                                <p class="m-b30">O‘tkirbek Muhammadsobir</p>
+                                <h6 class="steam-info">Kitobni o'qish</h6>
+                                <p class="m-b30"><a href="{{ book.file.url }}" class="site-button button-lg radius-xl m-r15">PDF</a></p>
                                 <h6 class="steam-info">Betlar soni</h6>
-                                <p class="m-b30">240</p>
+                                <p class="m-b30">{{ book.pager }}</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <h6 class="steam-info">Muqovasi</h6>
-                                <p class="m-b30"> Qattiq</p>
+                                <p class="m-b30"> {{ book.muqovasi }}</p>
                                 <h6 class="steam-info"> Chop etilgan yili</h6>
-                                <p class="m-b30"> 2022 </p>
+                                <p class="m-b30"> {{ book.printed_year }} </p>
                             </div>
                         </div>
                         <div class="steam-social">
 
-                            <h5>Kitobni o'qish><a href="{% url 'pdf' book.pk %}" ><i class="fa-regular fa-file-pdf"></i>></a></h5>
-
+{#                            write code for read book with border#}
+                            <a href="{{ book.file.url }}" class="site-button button-lg radius-xl m-r15">Kitobni o‘qish</a>
+                            <a href="#" class="site-button-secondry button-lg radius-xl">Kitobni sotib olish</a>
                         </div>
                     </div>
                 </div>
