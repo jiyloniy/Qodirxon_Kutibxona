@@ -7,15 +7,19 @@ from datetime import datetime, timedelta, timezone
 
 def home(request):
     banner = Banner.objects.filter(is_active=True)
-    random_book = Book.objects.filter(created_at__gte=datetime.now(timezone.utc) - timedelta(days=10)).order_by('?')[:10]
+    # random_book = Book.objects.filter(created_at__gte=datetime.now(timezone.utc) - timedelta(days=10)).order_by('?')[:10]
     #
-
+    random_book = Book.objects.all()
     context = {
         'banner': banner,
         'book': random_book,
     }
     return render(request, 'index-6.html', context)
 
+
+
+def me(request):
+    return render(request,'free-a-quote.html')
 
 # class BookListView(ListView):
 #     model = Book
@@ -66,7 +70,7 @@ def author(request, pk):
 
 
 def book_detail(request, pk):
-    book = Book.objects.get(pk=pk)
+    book = Book.objects.get(unique_id=pk)
     context = {
         'book': book,
     }

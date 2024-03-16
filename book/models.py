@@ -68,7 +68,10 @@ class Book(models.Model):
         now = datetime.now(timezone.utc)
         return (now - self.created_at) < timedelta(days=3)
 
-
+    @property
+    def get_author_id(self):
+        author_id = self.author
+        return author_id
 class Audio(models.Model):
     file = models.FileField(upload_to="audio/")
     book = models.ForeignKey(Book, on_delete=models.CASCADE, null=True, blank=True)

@@ -54,17 +54,12 @@
                                 <img src="{{ foo.image.url }}" alt="">
                             </div>
                             <div class="team-info">
-                                <h4>{{ foo.name }}</h4>
+                                <h4><a href="{% url 'book_detail' foo.unique_id %}">{{ foo.name }}</a></h4>
                                 <span>{{ foo.author.name }}</span>
-                                <div class="team-social">
-                                    <a class="twitter" target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="facebook" target="_blank" href="#"><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a class="pinterest" target="_blank" href="#"><i
-                                            class="fab fa-pinterest-p"></i></a>
-                                    <span class="flaticon-add-1"></span>
-                                </div>
+
+
                             </div>
+
                         </div>
                     </div>
                     {% endfor %}
